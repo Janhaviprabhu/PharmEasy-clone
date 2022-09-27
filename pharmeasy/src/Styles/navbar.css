@@ -1,0 +1,62 @@
+.nav-flex{
+    gap: 690px;
+      padding:9px;
+     box-shadow: rgb(0 0 0 / 12%) 0px -1px 0px inset;
+
+      
+}
+
+.left-div{
+    gap:30px;
+  margin-left: 50px;
+}
+
+.line{
+    height: 30px;
+    width: 1px;
+    background-color: #8897a2;
+}
+.right-div{
+    gap:30px;
+    
+}
+.loginflex{
+    align-items: center;
+    gap: 8px;
+    
+}
+.loginflex:hover{
+    text-decoration: dotted;
+    text-decoration-line: underline;
+    
+}
+.offerflex{
+       align-items: center;
+    gap: 8px;
+
+}
+.offerflex:hover{
+     text-decoration: dotted;
+    text-decoration-line: underline;
+}
+.cartflex{
+       align-items: center;
+    gap: 8px;
+}
+.cartflex:hover{
+     text-decoration: dotted;
+    text-decoration-line: underline;
+}
+.logicon{
+    height: 18px;
+    width: 19px;
+    
+}
+.offericon{
+    height: 18px;
+    width: 20px;
+}
+.carticon{
+    height: 18px;
+    width: 18px;
+}
