@@ -33,3 +33,13 @@ export const Carticon = () => {
     </>
   );
 };
+export const Search=()=>{
+return (
+  <>
+    <img width={40} 
+      src="https://t3.ftcdn.net/jpg/01/97/13/54/240_F_197135414_Hiy7mFFJQUBDoNm33L7i9sNUUtJNllXs.jpg"
+      alt="search"
+    />
+  </>
+);
+}

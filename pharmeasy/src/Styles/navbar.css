@@ -1,9 +1,19 @@
+.navbar{
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    z-index: 99;
+}
+
 .nav-flex{
+    width: 100%;
     gap: 690px;
       padding:9px;
      box-shadow: rgb(0 0 0 / 12%) 0px -1px 0px inset;
 
-      
+  /* background-color: white; */
+   margin:0;
+   
 }
 
 .left-div{
@@ -59,4 +69,16 @@
 .carticon{
     height: 18px;
     width: 18px;
+}
+.categoriesnav{
+    width:56%;
+    margin: auto;
+    gap: 40px;
+    padding: 12px;
+  
+  
+}
+.categorynavbox{
+
+    background-color: #eef4ff;
 }
