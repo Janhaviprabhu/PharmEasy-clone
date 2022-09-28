@@ -1,11 +1,10 @@
-import {Heading} from "@chakra-ui/react"
+import { Box, Heading } from "@chakra-ui/react";
 
-export const Home=()=>{
-    return(
-        <>
-        <Heading>
-            homepage
-        </Heading>
-        </>
-    )
-}
+export const Home = () => {
+  return (
+    <>
+      <Box h="110px"></Box>
+      <Heading>rgbwg</Heading>
+    </>
+  );
+};

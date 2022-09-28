@@ -1,0 +1,55 @@
+.footerdiv{
+width: 95%;
+margin: auto;
+padding: 50px;
+background-color: #eef4ff;
+}
+.footercategories{
+    display: flex;
+    
+    display: flex;
+    gap:180px;
+    
+    line-height: 2;
+    
+    font-size: 15px;
+
+}
+.footercategories h5{
+  
+    font-weight: bolder;
+}
+
+
+.socialsites{
+    display: flex;
+    gap: 30px;
+     
+}
+.socialsites img{
+    width: 32px;
+    height: 32px;
+}
+.socialsitesdiv{
+    
+    width: 30%;
+    height: auto;
+    font-weight: bold;
+    font-size: 17px;
+}
+.partners-div{
+    display: flex;
+  gap: 500px;
+
+   padding-top: 20px;
+  
+}
+.paymentmethods{
+    display: flex;
+    gap: 30px;
+    
+}
+.paymentmethods img{
+    width: auto;
+    height: auto;
+}

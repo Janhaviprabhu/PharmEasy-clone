@@ -1,0 +1,32 @@
+.medicinebox{
+    border: 1px solid black;
+    width: 70%;
+    margin: auto;
+}
+.olheading{
+    margin-top: 35px;
+    color: #4f585e;;
+}
+.searchCard{
+    background-color: #10847e;
+    border-radius: 8px;
+    width: 600px;
+    padding: 20px;
+    
+}
+
+.inputgrp{
+   
+    margin-top: 20px;
+}
+.offers{
+    gap: 20px;
+    color: white;
+}
+.heading{
+    margin-top: 25px;
+    color: white;
+}
+.offersinnerdiv{
+    gap: 8px;
+}
