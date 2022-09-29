@@ -3,3 +3,8 @@
   padding: 0px;
   font-family: Arial, Helvetica, sans-serif;
 }
+.homediv{
+  width: 95%;
+  border: 1px solid black;
+  margin: auto;
+}
