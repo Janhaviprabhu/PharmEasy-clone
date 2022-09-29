@@ -47,7 +47,7 @@ export const Medicines=()=>{
           <Box ml={14}>{value}</Box>
           <Box>
             {data.map((ele) => (
-              <Flex padding={10} alignItems={"center"} gap={10}>
+              <Flex key={ele.id} padding={10} alignItems={"center"} gap={10}>
                 <Image
                   src={ele.img}
                   width={{ base: "10", sm: "20", md: "30", lg: "40" }}
@@ -56,7 +56,9 @@ export const Medicines=()=>{
               </Flex>
             ))}
           </Box>
-          <Heading mt={8} as={"h6"} size={"md"} color="gray">All Offers</Heading>
+          <Heading mt={8} as={"h6"} size={"md"} color="gray">
+            All Offers
+          </Heading>
           <Box mt={8}>
             <Flex padding={2} gap={5}>
               <Box borderRadius={10} border={"1px solid lightgrey"} padding={7}>
@@ -103,7 +105,6 @@ export const Medicines=()=>{
               </Box>
             </Flex>
           </Box>
-          
 
           <Heading mt={10} as={"h6"} size={"sm"}>
             India's No. 1 Medicine Delivery App

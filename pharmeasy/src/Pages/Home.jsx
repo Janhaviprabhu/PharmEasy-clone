@@ -92,7 +92,7 @@ export const Home = () => {
         </Box>
         <Box ml={"300px"}>
           {data.map((ele) => (
-            <Flex padding={10} alignItems={"center"} gap={10}>
+            <Flex key={ele.id} padding={10} alignItems={"center"} gap={10}>
               <Image
                 src={ele.img}
                 width={{ base: "10", sm: "20", md: "30", lg: "40" }}
@@ -101,7 +101,7 @@ export const Home = () => {
             </Flex>
           ))}
         </Box>
-        <Flex mt={10} gap={9} textAlign="center">
+        <Flex ml={20} mt={10} gap={9} textAlign="center">
           <Box
             borderRadius={10}
             _hover={{ boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px;" }}
