@@ -934,79 +934,231 @@ export const Home = ({ value, handleChange, onClick }) => {
           }}
         >
           <GridItem>
-            <Box width={130}>
+            <Box width={140}>
               <Image
                 borderRadius={8}
                 width={130}
-                src="https://cms-contents.pharmeasy.in/homepage_top_categories_images/923a665cc6f-Skin_care.png?dim=128x0"
+                src="https://cms-contents.pharmeasy.in/carousel_item/a559f294d43-Vicks-min.png?dim=1440x0"
               />
 
-              <Text mt={4} textAlign={"center"}>
-                Skin Care
+              <Text mt={7} textAlign={"center"}>
+                Vicks
               </Text>
             </Box>
           </GridItem>
           <GridItem>
             <Box>
               <Image
-                width={130}
-                src="https://cms-contents.pharmeasy.in/homepage_top_categories_images/18d2e2ee86b-Vitamins.png?dim=128x0"
+                width={140}
+                src="https://cms-contents.pharmeasy.in/carousel_item/3eb4eb6bfbe-App_Himalaya.jpg?dim=1440x0"
               />
 
               <Text mt={4} ml={6}>
-                Vitamins & Supplements
+                Himalaya
               </Text>
             </Box>
           </GridItem>
           <GridItem>
             <Box>
               <Image
-                width={130}
-                src="https://cms-contents.pharmeasy.in/homepage_top_categories_images/0af9ac9f350-Diabetes.webp?dim=128x0"
+                width={140}
+                src="https://cms-contents.pharmeasy.in/carousel_item/40facc7fa28-Pharmeasy-App.jpg?dim=1440x0"
               />
 
-              <Text mt={4} width={40} ml={2}>
-                Diabetes Care & Sugar Substitutes..
+              <Text mt={4} width={40} ml={3}>
+                PharmEasy
               </Text>
             </Box>
           </GridItem>
           <GridItem>
             <Box>
               <Image
-                width={130}
-                src="https://cms-contents.pharmeasy.in/homepage_top_categories_images/24a0d2c733e-Heart.webp?dim=128x0"
+                width={140}
+                src="https://cms-contents.pharmeasy.in/carousel_item/83ada4a51e4-5849cd97369-App-Neurobion-min.png?dim=1440x0"
               />
 
               <Text mt={4} ml={4}>
-                Cardiac Care
+                Neurobion
               </Text>
             </Box>
           </GridItem>
           <GridItem>
             <Box>
               <Image
-                width={120}
-                src="https://cms-contents.pharmeasy.in/homepage_top_categories_images/68369c9df98-Pregnancy.webp?dim=128x0"
+                width={140}
+                src="https://cms-contents.pharmeasy.in/carousel_item/c7cfaa4b6c9-Cetaphil_v2.png?dim=1440x0"
               />
-              <Text mt={7}>Baby & Mom Care</Text>
+              <Text mt={4}>Baby & Mom Care</Text>
             </Box>
           </GridItem>
           <GridItem>
             <Box>
               <Image
-                width={120}
-                src="https://cms-contents.pharmeasy.in/homepage_top_categories_images/16ab65c0826-Covid.webp?dim=128x0"
+                width={140}
+                src="https://cms-contents.pharmeasy.in/carousel_item/3c344faad99-App_Featured-J.jpg?dim=1440x0"
               />
-              <Text mt={7}>Covid Care</Text>
+              <Text mt={4} ml={7}>
+                Johnson's
+              </Text>
             </Box>
           </GridItem>
           <GridItem>
             <Box>
               <Image
+                width={140}
+                src="https://cms-contents.pharmeasy.in/carousel_item/c9fc0cd6ef6-Revital-min.png?dim=1440x0"
+              />
+              <Text ml={8} mt={4}>
+                Revital
+              </Text>
+            </Box>
+          </GridItem>
+        </Grid>
+        {/* ....................slideshow compo.......... */}
+        {/* ................Deals of the dat........ */}
+        <Heading as={"h6"} size="lg" fontWeight={500}>
+          Deals of the Day
+        </Heading>
+        <Grid
+          fontSize={14}
+          mt={10}
+          ml={9}
+          templateColumns={{
+            base: "repeat(2, 1fr)",
+            sm: "repeat(4, 1fr)",
+            lg: "repeat(7, 1fr)",
+          }}
+        >
+          <GridItem>
+            <Box width={130}>
+              <Image
+                borderRadius={8}
+                border={"1px solid lightgrey"}
+                padding={8}
+                _hover={{
+                  boxShadow:
+                    "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
+                }}
+                width={190}
+                src="https://cdn01.pharmeasy.in/dam/products_otc/U92247/toothsi-electro-rechargeable-electric-toothbrush-with-2-replaceable-heads-sonic-technology-1-1650108808.jpg?dim=1440x0"
+              />
+              <Text mt={3}>Toothsi Electro Rechargeable</Text>
+              <Text mt={2} color={"grey"}>
+                MRP ₹899.00
+              </Text>
+            </Box>
+          </GridItem>
+          <GridItem>
+            <Box>
+              <Image
+                borderRadius={8}
+                border={"1px solid lightgrey"}
+                padding={10}
+                _hover={{
+                  boxShadow:
+                    "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
+                }}
+                width={125}
+                src="https://cdn01.pharmeasy.in/dam/products_otc/082015/himalaya-gasex-tablets-100s-2-1641399057.jpg?dim=1440x0"
+              />
+              <Text mt={2}>Himalaya Gasex Tablets - 100's</Text>
+              <Text mt={2} color="grey">
+                MRP ₹123.00
+              </Text>
+            </Box>
+          </GridItem>
+          <GridItem>
+            <Box>
+              <Image
+                borderRadius={8}
+                border={"1px solid lightgrey"}
+                padding={2}
+                _hover={{
+                  boxShadow:
+                    "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
+                }}
+                width={150}
+                src="https://cdn01.pharmeasy.in/dam/products_otc/270552/revital-h-men-multivitamin-with-calcium-zinc-ginseng-for-immunity-strong-bones-energy-30-capsules-2-1654077741.jpg?dim=1440x0"
+              />
+              <Text width={40} mt={5}>
+                Revital H Men Multivitamin
+              </Text>
+              <Text mt={3} color={"grey"}>
+                MRP ₹501.00
+              </Text>
+            </Box>
+          </GridItem>
+          <GridItem>
+            <Box>
+              <Image
+                ml={3}
+                borderRadius={8}
+                border={"1px solid lightgrey"}
+                padding={4}
+                width={125}
+                _hover={{
+                  boxShadow:
+                    "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
+                }}
+                src="https://cdn01.pharmeasy.in/dam/products/M15866/kidrich-d3-bottle-of-5ml-oral-solution-1-1663157621.jpg?dim=1440x0"
+              />
+              <Text mt={3}>Sanfe Back & Bum Acne Clearing Lotion</Text>
+              <Text mt={3} color={"grey"}>
+                MRP ₹154.00
+              </Text>
+            </Box>
+          </GridItem>
+          <GridItem>
+            <Box>
+              <Image
+                borderRadius={8}
+                border={"1px solid lightgrey"}
+                padding={2}
+                _hover={{
+                  boxShadow:
+                    "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
+                }}
+                ml={3}
+                width={"120px"}
+                height="auto"
+                src="https://cdn01.pharmeasy.in/dam/products_otc/I07716/indulekha-bringha-hair-oil-bottle-of-100-ml-2-1654168008.jpg"
+              />
+              <Text  mt={4}>Liveasy Wellness Pain Relief Spray 55gm</Text>
+              <Text color={"grey"} mt={4}>MRP ₹199.00</Text>
+            </Box>
+          </GridItem>
+          <GridItem>
+            <Box>
+              <Image
+                borderRadius={8}
+                border={"1px solid lightgrey"}
+                padding={2}
+                _hover={{
+                  boxShadow:
+                    "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
+                }}
                 width={130}
-                src="https://cms-contents.pharmeasy.in/homepage_top_categories_images/26bbd7a9e98-Lifestyle.webp?dim=128x0"
+                src="https://cdn01.pharmeasy.in/dam/products_otc/L11389/venusia-baby-cream-75g-2-1663052178.jpg?dim=1440x0"
               />
-              <Text mt={5}>Lifestyle Disorders</Text>
+              <Text mt={4}>Venusia Baby Cream -75g</Text>
+              <Text color={"grey"} mt={4}>MRP ₹275.00</Text>
+            </Box>
+          </GridItem>
+          <GridItem>
+            <Box>
+              <Image
+                borderRadius={8}
+                border={"1px solid lightgrey"}
+                padding={5}
+                _hover={{
+                  boxShadow:
+                    "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
+                }}
+                width={100}
+                src="https://cdn01.pharmeasy.in/dam/products_otc/269287/muout-plus-powder-119gm-2-1641531916.jpg?dim=1440x0"
+              />
+              <Text mt={5}>Revital H Men Multivitamin</Text>
+              <Text mt={4} color="grey">MRP ₹550</Text>
             </Box>
           </GridItem>
         </Grid>
