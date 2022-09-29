@@ -12,12 +12,36 @@ import {
   GridItem,
   Grid,
 } from "@chakra-ui/react";
+import { useState } from "react";
 import "../App.css";
+
 import { SearchBox } from "../Components/SearchBox";
 import { Adslider } from "../Components/Slider";
 import { Search } from "../Icon/loginicon";
 
-export const Home = ({ value, handleChange, onClick }) => {
+export const Home = () => {
+   const [value, setValue] = useState("");
+    const [data, setData] = useState([]);
+     const [boxval, setBoxval] = useState(true);
+    const getData = (query) => {
+      fetch(`http://localhost:3000/medicines?q=${query}`)
+        .then((res) => res.json())
+        .then((res) => {
+          setData(res);
+          console.log(res);
+          setValue("");
+          setBoxval(true);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+      const handleChange = (e) => {
+        const { value } = e.target;
+        setValue(value);
+        setBoxval(true);
+        console.log(value);
+      };
   return (
     <>
       <Box h="170px"></Box>
@@ -46,7 +70,7 @@ export const Home = ({ value, handleChange, onClick }) => {
           />
           <InputRightAddon
             background={"white"}
-            onClick={onClick}
+            onClick={() => getData(value)}
             fontSize={"md"}
             className="inputgrp"
             children={
@@ -63,6 +87,20 @@ export const Home = ({ value, handleChange, onClick }) => {
             }
           />
         </InputGroup>
+        <Box padding={4} margin={"auto"} width={"555px"}>
+          {value}
+        </Box>
+        <Box ml={"300px"}>
+          {data.map((ele) => (
+            <Flex padding={10} alignItems={"center"} gap={10}>
+              <Image
+                src={ele.img}
+                width={{ base: "10", sm: "20", md: "30", lg: "40" }}
+              />
+              <Box>{ele.title}</Box>
+            </Flex>
+          ))}
+        </Box>
         <Flex mt={10} gap={9} textAlign="center">
           <Box
             borderRadius={10}
@@ -73,6 +111,7 @@ export const Home = ({ value, handleChange, onClick }) => {
               width={40}
               src="https://assets.pharmeasy.in/apothecary/images/medicine_ff.webp?dim=256x0"
             />
+
             {/* .........................................Categories................................................ */}
             <Text>Medicine</Text>
             <Text color={"red"} fontSize="12px" fontWeight={600}>
@@ -164,73 +203,81 @@ export const Home = ({ value, handleChange, onClick }) => {
             <Heading></Heading>
           </Box>
         </Flex>
+        {/* ..........................................offers Just for You........... */}
         <Heading fontWeight={500} mt={20} as="h3" size="lg">
           Offers Just for You
         </Heading>
-        <Box mt={8}>
-          <Flex padding={2} gap={5}>
-            <Box
-              _hover={{
-                boxShadow:
-                  "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
-              }}
-              borderRadius={10}
-              border={"1px solid lightgrey"}
-              padding={7}
-            >
-              <Flex gap={4}>
-                <Image
-                  borderRadius={5}
-                  src="https://cms-contents.pharmeasy.in/offer/028f38c99b9-PELOGO.jpg?dim=1440x0"
-                  width={20}
-                />
-                <Text fontSize={"sm"}>
-                  Flat 25% off on first 3 medicine orders{"   "}
-                </Text>
-              </Flex>
-            </Box>
-            <Box
-              _hover={{
-                boxShadow:
-                  "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
-              }}
-              borderRadius={10}
-              border={"1px solid lightgrey"}
-              padding={7}
-            >
-              <Flex gap={4}>
-                <Image
-                  borderRadius={5}
-                  src="https://cms-contents.pharmeasy.in/offer/5ff570b46e0-PELOGO.jpg?dim=1440x0"
-                  width={20}
-                />
-                <Text fontSize={"sm"}>
-                  Flat 27% off + up to Rs.5000 surprise cashback{" "}
-                </Text>
-              </Flex>
-            </Box>
-            <Box
-              _hover={{
-                boxShadow:
-                  "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
-              }}
-              borderRadius={10}
-              border={"1px solid lightgrey"}
-              padding={7}
-            >
-              <Flex gap={4}>
-                <Image
-                  borderRadius={5}
-                  src="https://cms-contents.pharmeasy.in/offer/41232b873a8-PELOGO.jpg?dim=1440x0"
-                  width={20}
-                />
-                <Text fontSize={"sm"}>
-                  Additional 15% cashback on 1st medicine{" "}
-                </Text>
-              </Flex>
-            </Box>
-          </Flex>
-        </Box>
+        <Grid
+          gap={8}
+          gridTemplateColumns={{
+            base: "repeat(1,1fr)",
+            sm: "repeat(3,1fr)",
+            lg: "repeat(3,1fr",
+          }}
+          fontSize={{ base: "12px", sm: "12px", lg: "14px" }}
+          mt={8}
+        >
+          <GridItem
+            _hover={{
+              boxShadow:
+                "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
+            }}
+            borderRadius={10}
+            border={"1px solid lightgrey"}
+            padding={7}
+          >
+            <Flex gap={4}>
+              <Image
+                borderRadius={5}
+                src="https://cms-contents.pharmeasy.in/offer/028f38c99b9-PELOGO.jpg?dim=1440x0"
+                width={20}
+              />
+              <Text fontSize={"sm"}>
+                Flat 25% off on first 3 medicine orders{"   "}
+              </Text>
+            </Flex>
+          </GridItem>
+          <GridItem
+            _hover={{
+              boxShadow:
+                "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
+            }}
+            borderRadius={10}
+            border={"1px solid lightgrey"}
+            padding={7}
+          >
+            <Flex gap={4}>
+              <Image
+                borderRadius={5}
+                src="https://cms-contents.pharmeasy.in/offer/5ff570b46e0-PELOGO.jpg?dim=1440x0"
+                width={20}
+              />
+              <Text fontSize={"sm"}>
+                Flat 27% off + up to Rs.5000 surprise cashback{" "}
+              </Text>
+            </Flex>
+          </GridItem>
+          <GridItem
+            _hover={{
+              boxShadow:
+                "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
+            }}
+            borderRadius={10}
+            border={"1px solid lightgrey"}
+            padding={7}
+          >
+            <Flex gap={4}>
+              <Image
+                borderRadius={5}
+                src="https://cms-contents.pharmeasy.in/offer/41232b873a8-PELOGO.jpg?dim=1440x0"
+                width={20}
+              />
+              <Text fontSize={"sm"}>
+                Additional 15% cashback on 1st medicine{" "}
+              </Text>
+            </Flex>
+          </GridItem>
+        </Grid>
         {/* ..............shop by categories........................... */}
         <Heading fontWeight={500} as="h3" size="lg" mt={20}>
           Shop By Categories
