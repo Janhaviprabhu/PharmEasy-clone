@@ -12,12 +12,36 @@ import {
   GridItem,
   Grid,
 } from "@chakra-ui/react";
+import { useState } from "react";
 import "../App.css";
+
 import { SearchBox } from "../Components/SearchBox";
 import { Adslider } from "../Components/Slider";
 import { Search } from "../Icon/loginicon";
 
-export const Home = ({ value, handleChange, onClick }) => {
+export const Home = () => {
+   const [value, setValue] = useState("");
+    const [data, setData] = useState([]);
+     const [boxval, setBoxval] = useState(true);
+    const getData = (query) => {
+      fetch(`http://localhost:3000/medicines?q=${query}`)
+        .then((res) => res.json())
+        .then((res) => {
+          setData(res);
+          console.log(res);
+          setValue("");
+          setBoxval(true);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+      const handleChange = (e) => {
+        const { value } = e.target;
+        setValue(value);
+        setBoxval(true);
+        console.log(value);
+      };
   return (
     <>
       <Box h="170px"></Box>
@@ -46,7 +70,7 @@ export const Home = ({ value, handleChange, onClick }) => {
           />
           <InputRightAddon
             background={"white"}
-            onClick={onClick}
+            onClick={() => getData(value)}
             fontSize={"md"}
             className="inputgrp"
             children={
@@ -63,7 +87,21 @@ export const Home = ({ value, handleChange, onClick }) => {
             }
           />
         </InputGroup>
-        <Flex mt={10} gap={9} textAlign="center">
+        <Box padding={4} margin={"auto"} width={"555px"}>
+          {value}
+        </Box>
+        <Box ml={"300px"}>
+          {data.map((ele) => (
+            <Flex key={ele.id} padding={10} alignItems={"center"} gap={10}>
+              <Image
+                src={ele.img}
+                width={{ base: "10", sm: "20", md: "30", lg: "40" }}
+              />
+              <Box>{ele.title}</Box>
+            </Flex>
+          ))}
+        </Box>
+        <Flex ml={20} mt={10} gap={9} textAlign="center">
           <Box
             borderRadius={10}
             _hover={{ boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px;" }}
@@ -73,6 +111,7 @@ export const Home = ({ value, handleChange, onClick }) => {
               width={40}
               src="https://assets.pharmeasy.in/apothecary/images/medicine_ff.webp?dim=256x0"
             />
+
             {/* .........................................Categories................................................ */}
             <Text>Medicine</Text>
             <Text color={"red"} fontSize="12px" fontWeight={600}>
@@ -164,73 +203,82 @@ export const Home = ({ value, handleChange, onClick }) => {
             <Heading></Heading>
           </Box>
         </Flex>
+        {/* ..........................................offers Just for You........... */}
         <Heading fontWeight={500} mt={20} as="h3" size="lg">
           Offers Just for You
         </Heading>
-        <Box mt={8}>
-          <Flex padding={2} gap={5}>
-            <Box
-              _hover={{
-                boxShadow:
-                  "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
-              }}
-              borderRadius={10}
-              border={"1px solid lightgrey"}
-              padding={7}
-            >
-              <Flex gap={4}>
-                <Image
-                  borderRadius={5}
-                  src="https://cms-contents.pharmeasy.in/offer/028f38c99b9-PELOGO.jpg?dim=1440x0"
-                  width={20}
-                />
-                <Text fontSize={"sm"}>
-                  Flat 25% off on first 3 medicine orders{"   "}
-                </Text>
-              </Flex>
-            </Box>
-            <Box
-              _hover={{
-                boxShadow:
-                  "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
-              }}
-              borderRadius={10}
-              border={"1px solid lightgrey"}
-              padding={7}
-            >
-              <Flex gap={4}>
-                <Image
-                  borderRadius={5}
-                  src="https://cms-contents.pharmeasy.in/offer/5ff570b46e0-PELOGO.jpg?dim=1440x0"
-                  width={20}
-                />
-                <Text fontSize={"sm"}>
-                  Flat 27% off + up to Rs.5000 surprise cashback{" "}
-                </Text>
-              </Flex>
-            </Box>
-            <Box
-              _hover={{
-                boxShadow:
-                  "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
-              }}
-              borderRadius={10}
-              border={"1px solid lightgrey"}
-              padding={7}
-            >
-              <Flex gap={4}>
-                <Image
-                  borderRadius={5}
-                  src="https://cms-contents.pharmeasy.in/offer/41232b873a8-PELOGO.jpg?dim=1440x0"
-                  width={20}
-                />
-                <Text fontSize={"sm"}>
-                  Additional 15% cashback on 1st medicine{" "}
-                </Text>
-              </Flex>
-            </Box>
-          </Flex>
-        </Box>
+        <Grid
+          gap={8}
+          gridTemplateColumns={{
+            base: "repeat(1,1fr)",
+            sm: "repeat(3,1fr)",
+            lg: "repeat(3,1fr",
+          }}
+          fontSize={{ base: "12px", sm: "12px", lg: "14px" }}
+          mt={8}
+        >
+          <GridItem
+            _hover={{
+              boxShadow:
+                "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
+            }}
+            borderRadius={10}
+            border={"1px solid lightgrey"}
+            padding={7}
+          >
+            <Flex gap={4}>
+              <Image
+                borderRadius={5}
+                src="https://cms-contents.pharmeasy.in/offer/028f38c99b9-PELOGO.jpg?dim=1440x0"
+                width={20}
+              />
+              <Text fontSize={"sm"}>
+                Flat 25% off on first 3 medicine orders{"   "}
+              </Text>
+            </Flex>
+          </GridItem>
+          <GridItem
+            _hover={{
+              boxShadow:
+                "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
+            }}
+            borderRadius={10}
+            border={"1px solid lightgrey"}
+            padding={7}
+          >
+            <Flex gap={4}>
+              <Image
+                borderRadius={5}
+                src="https://cms-contents.pharmeasy.in/offer/5ff570b46e0-PELOGO.jpg?dim=1440x0"
+                width={20}
+              />
+              <Text fontSize={"sm"}>
+                Flat 27% off + up to Rs.5000 surprise cashback{" "}
+              </Text>
+            </Flex>
+          </GridItem>
+          <GridItem
+            _hover={{
+              boxShadow:
+                "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
+            }}
+            borderRadius={10}
+            border={"1px solid lightgrey"}
+            padding={7}
+          >
+            <Flex gap={4}>
+              <Image
+                borderRadius={5}
+                src="https://cms-contents.pharmeasy.in/offer/41232b873a8-PELOGO.jpg?dim=1440x0"
+                width={20}
+              />
+              <Text fontSize={"sm"}>
+                Additional 15% cashback on 1st medicine{" "}
+              </Text>
+            </Flex>
+          </GridItem>
+        </Grid>
+        {/* ..............shop by categories........................... */}
         <Heading fontWeight={500} as="h3" size="lg" mt={20}>
           Shop By Categories
         </Heading>
@@ -725,7 +773,7 @@ export const Home = ({ value, handleChange, onClick }) => {
           </GridItem>
         </Grid>
         {/* ..........................Frequently Booked Lab tests........................... */}
-        <Heading as="h3" size="lg" fontWeight={600}>
+        <Heading mt={20} as="h3" size="lg" fontWeight={600}>
           Frequently Booked Lab Tests
         </Heading>
         <Grid
@@ -894,7 +942,8 @@ export const Home = ({ value, handleChange, onClick }) => {
             </Box>
           </GridItem>
         </Grid>
-        <Heading as={"h6"} size="lg" fontWeight={500}>
+        {/* ...............................Payment offers........ */}
+        <Heading as={"h6"} size="lg" fontWeight={500} mt={20}>
           Payment Offers
         </Heading>
         <Grid overflow={"hidden"} templateColumns={"repeat(3,1fr)"} mt={7}>
@@ -934,82 +983,343 @@ export const Home = ({ value, handleChange, onClick }) => {
           }}
         >
           <GridItem>
-            <Box width={130}>
+            <Box width={140}>
               <Image
                 borderRadius={8}
                 width={130}
-                src="https://cms-contents.pharmeasy.in/homepage_top_categories_images/923a665cc6f-Skin_care.png?dim=128x0"
+                src="https://cms-contents.pharmeasy.in/carousel_item/a559f294d43-Vicks-min.png?dim=1440x0"
               />
 
-              <Text mt={4} textAlign={"center"}>
-                Skin Care
+              <Text mt={7} textAlign={"center"}>
+                Vicks
               </Text>
             </Box>
           </GridItem>
           <GridItem>
             <Box>
               <Image
-                width={130}
-                src="https://cms-contents.pharmeasy.in/homepage_top_categories_images/18d2e2ee86b-Vitamins.png?dim=128x0"
+                width={140}
+                src="https://cms-contents.pharmeasy.in/carousel_item/3eb4eb6bfbe-App_Himalaya.jpg?dim=1440x0"
               />
 
               <Text mt={4} ml={6}>
-                Vitamins & Supplements
+                Himalaya
               </Text>
             </Box>
           </GridItem>
           <GridItem>
             <Box>
               <Image
-                width={130}
-                src="https://cms-contents.pharmeasy.in/homepage_top_categories_images/0af9ac9f350-Diabetes.webp?dim=128x0"
+                width={140}
+                src="https://cms-contents.pharmeasy.in/carousel_item/40facc7fa28-Pharmeasy-App.jpg?dim=1440x0"
               />
 
-              <Text mt={4} width={40} ml={2}>
-                Diabetes Care & Sugar Substitutes..
+              <Text mt={4} width={40} ml={3}>
+                PharmEasy
               </Text>
             </Box>
           </GridItem>
           <GridItem>
             <Box>
               <Image
-                width={130}
-                src="https://cms-contents.pharmeasy.in/homepage_top_categories_images/24a0d2c733e-Heart.webp?dim=128x0"
+                width={140}
+                src="https://cms-contents.pharmeasy.in/carousel_item/83ada4a51e4-5849cd97369-App-Neurobion-min.png?dim=1440x0"
               />
 
               <Text mt={4} ml={4}>
-                Cardiac Care
+                Neurobion
               </Text>
             </Box>
           </GridItem>
           <GridItem>
             <Box>
               <Image
-                width={120}
-                src="https://cms-contents.pharmeasy.in/homepage_top_categories_images/68369c9df98-Pregnancy.webp?dim=128x0"
+                width={140}
+                src="https://cms-contents.pharmeasy.in/carousel_item/c7cfaa4b6c9-Cetaphil_v2.png?dim=1440x0"
               />
-              <Text mt={7}>Baby & Mom Care</Text>
+              <Text mt={4}>Baby & Mom Care</Text>
             </Box>
           </GridItem>
           <GridItem>
             <Box>
               <Image
-                width={120}
-                src="https://cms-contents.pharmeasy.in/homepage_top_categories_images/16ab65c0826-Covid.webp?dim=128x0"
+                width={140}
+                src="https://cms-contents.pharmeasy.in/carousel_item/3c344faad99-App_Featured-J.jpg?dim=1440x0"
               />
-              <Text mt={7}>Covid Care</Text>
+              <Text mt={4} ml={7}>
+                Johnson's
+              </Text>
             </Box>
           </GridItem>
           <GridItem>
             <Box>
               <Image
-                width={130}
-                src="https://cms-contents.pharmeasy.in/homepage_top_categories_images/26bbd7a9e98-Lifestyle.webp?dim=128x0"
+                width={140}
+                src="https://cms-contents.pharmeasy.in/carousel_item/c9fc0cd6ef6-Revital-min.png?dim=1440x0"
               />
-              <Text mt={5}>Lifestyle Disorders</Text>
+              <Text ml={8} mt={4}>
+                Revital
+              </Text>
             </Box>
           </GridItem>
         </Grid>
+        {/* ....................slideshow compo.......... */}
+        {/* ................Deals of the dat........ */}
+        <Heading mt={20} as={"h6"} size="lg" fontWeight={500}>
+          Deals of the Day
+        </Heading>
+        <Grid
+          fontSize={14}
+          mt={10}
+          ml={9}
+          templateColumns={{
+            base: "repeat(2, 1fr)",
+            sm: "repeat(4, 1fr)",
+            lg: "repeat(7, 1fr)",
+          }}
+        >
+          <GridItem>
+            <Box width={130}>
+              <Image
+                borderRadius={8}
+                border={"1px solid lightgrey"}
+                padding={8}
+                _hover={{
+                  boxShadow:
+                    "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
+                }}
+                width={190}
+                src="https://cdn01.pharmeasy.in/dam/products_otc/U92247/toothsi-electro-rechargeable-electric-toothbrush-with-2-replaceable-heads-sonic-technology-1-1650108808.jpg?dim=1440x0"
+              />
+              <Text mt={3}>Toothsi Electro Rechargeable</Text>
+              <Text mt={2} color={"grey"}>
+                MRP ₹899.00
+              </Text>
+            </Box>
+          </GridItem>
+          <GridItem>
+            <Box>
+              <Image
+                borderRadius={8}
+                border={"1px solid lightgrey"}
+                padding={10}
+                _hover={{
+                  boxShadow:
+                    "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
+                }}
+                width={125}
+                src="https://cdn01.pharmeasy.in/dam/products_otc/082015/himalaya-gasex-tablets-100s-2-1641399057.jpg?dim=1440x0"
+              />
+              <Text mt={2}>Himalaya Gasex Tablets - 100's</Text>
+              <Text mt={2} color="grey">
+                MRP ₹123.00
+              </Text>
+            </Box>
+          </GridItem>
+          <GridItem>
+            <Box>
+              <Image
+                borderRadius={8}
+                border={"1px solid lightgrey"}
+                padding={2}
+                _hover={{
+                  boxShadow:
+                    "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
+                }}
+                width={150}
+                src="https://cdn01.pharmeasy.in/dam/products_otc/270552/revital-h-men-multivitamin-with-calcium-zinc-ginseng-for-immunity-strong-bones-energy-30-capsules-2-1654077741.jpg?dim=1440x0"
+              />
+              <Text width={40} mt={5}>
+                Revital H Men Multivitamin
+              </Text>
+              <Text mt={3} color={"grey"}>
+                MRP ₹501.00
+              </Text>
+            </Box>
+          </GridItem>
+          <GridItem>
+            <Box>
+              <Image
+                ml={3}
+                borderRadius={8}
+                border={"1px solid lightgrey"}
+                padding={4}
+                width={125}
+                _hover={{
+                  boxShadow:
+                    "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
+                }}
+                src="https://cdn01.pharmeasy.in/dam/products/M15866/kidrich-d3-bottle-of-5ml-oral-solution-1-1663157621.jpg?dim=1440x0"
+              />
+              <Text mt={3}>Sanfe Back & Bum Acne Clearing Lotion</Text>
+              <Text mt={3} color={"grey"}>
+                MRP ₹154.00
+              </Text>
+            </Box>
+          </GridItem>
+          <GridItem>
+            <Box>
+              <Image
+                borderRadius={8}
+                border={"1px solid lightgrey"}
+                padding={2}
+                _hover={{
+                  boxShadow:
+                    "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
+                }}
+                ml={3}
+                width={"120px"}
+                height="auto"
+                src="https://cdn01.pharmeasy.in/dam/products_otc/I07716/indulekha-bringha-hair-oil-bottle-of-100-ml-2-1654168008.jpg"
+              />
+              <Text mt={4}>Liveasy Wellness Pain Relief Spray 55gm</Text>
+              <Text color={"grey"} mt={4}>
+                MRP ₹199.00
+              </Text>
+            </Box>
+          </GridItem>
+          <GridItem>
+            <Box>
+              <Image
+                borderRadius={8}
+                border={"1px solid lightgrey"}
+                padding={2}
+                _hover={{
+                  boxShadow:
+                    "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
+                }}
+                width={130}
+                src="https://cdn01.pharmeasy.in/dam/products_otc/L11389/venusia-baby-cream-75g-2-1663052178.jpg?dim=1440x0"
+              />
+              <Text mt={4}>Venusia Baby Cream -75g</Text>
+              <Text color={"grey"} mt={4}>
+                MRP ₹275.00
+              </Text>
+            </Box>
+          </GridItem>
+          <GridItem>
+            <Box>
+              <Image
+                borderRadius={8}
+                border={"1px solid lightgrey"}
+                padding={5}
+                _hover={{
+                  boxShadow:
+                    "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
+                }}
+                width={100}
+                src="https://cdn01.pharmeasy.in/dam/products_otc/269287/muout-plus-powder-119gm-2-1641531916.jpg?dim=1440x0"
+              />
+              <Text mt={5}>Revital H Men Multivitamin</Text>
+              <Text mt={4} color="grey">
+                MRP ₹550
+              </Text>
+            </Box>
+          </GridItem>
+        </Grid>
+        {/* ..........................Details.................. of the app............... */}
+        <Heading mt={10} as={"h6"} size="xs" fontWeight={500}>
+          Top-Selling Healthcare Products:
+        </Heading>
+        <Text fontSize={15}>
+          Accu-Chek Active - 100 Strips | Supradyn Multivitamin Tablets | DR
+          Morepen BG 03 - 50 Strips | Dettol Antiseptic Liquid | Ensure Diabetes
+          Care Vanilla Sugar Free Jar | Dettol Instant Hand Sanitizer | Everherb
+          Shilajit | Softovac SF Powder | Pediasure Premium Chocolate Refill
+        </Text>
+        <Heading mt={7} as={"h6"} size="xs" fontWeight={500}>
+          Top-Selling Healthcare Products:
+        </Heading>
+        <Text fontSize={15}>
+          Dolovera Gel | Neurobion Forte | Chymoral Forte | Crocin Advance |
+          Soframycin | Dexorange | Becadexamin | Folvite | Livogen | Becosules |
+          Fourderm | Nurokind Plus | Burnol | Crocin 650 | Mintop 5 |
+          Thrombophob | Evion 600
+        </Text>
+        <Heading mt={7} as={"h6"} size="xs" fontWeight={500}>
+          Top-Selling Healthcare Products:
+        </Heading>
+        <Text fontSize={15}>
+          N95 Masks | Hand Sanitizers | Hand Gloves, Disinfectants, Thermometers
+          & more!
+        </Text>
+        <Heading mt={7} as={"h6"} size="sm" fontWeight={500}>
+          Your One-Stop Online Pharmacy - PharmEasy
+        </Heading>
+        <Heading mt={7} as={"h6"} size="xs" fontWeight={500}>
+          We've got India Covered!
+        </Heading>
+        <Text fontSize={15} mt={3}>
+          We now deliver in 1000+ cities and towns across 22000+ pin codes. We
+          thereby cover every nook and corner of the country! The major cities
+          in which we deliver include Mumbai, Kolkata, Delhi, Bengaluru,
+          Ahmedabad, Hyderabad, Chennai, Thane, Howrah, Pune, Gurgaon, Navi
+          Mumbai, Jaipur, Noida, Lucknow, Ghaziabad & Vadodara.
+        </Text>
+        <Heading mt={7} as={"h6"} size="xs" fontWeight={500}>
+          Say Goodbye to All Your Healthcare Worries With PharmEasy!
+        </Heading>
+        <Text fontSize={15} mt={3}>
+          PharmEasy is here to help you take it easy! We are amongst one of
+          India's top online pharmacy and medical care platforms. It enables you
+          to order pharmaceutical and healthcare products online by connecting
+          you to registered retail pharmacies and get them delivered to your
+          home. We are an online medical store, making your purchase easy,
+          simple, and affordable!
+        </Text>
+        <Heading mt={7} as={"h6"} size="xs" fontWeight={500}>
+          How Are We Making Lives Simpler With Our Online Medical Store?
+        </Heading>
+        <Text fontSize={15} mt={3}>
+          Our doorstep delivery service is available in PAN-India across top
+          cities like Bangalore, Delhi, Mumbai, Kolkata, Hyderabad, Gurgaon,
+          Noida, Pune, etc. Our online medical store also allows you to choose
+          from 1 lakh+ products including OTC products and medical equipment.
+          PharmEasy is a one-stop online medical platform where you can also
+          book diagnostic tests including blood tests, full-body checkups, and
+          other preventive health check-ups at an affordable cost, right from
+          the comfort of your home. We have partnered with trusted & certified
+          labs that arrange for a sample pick-up from the convenience of your
+          home. They also provide you with timely reports.
+        </Text>
+        <Heading mt={7} as={"h6"} size="xs" fontWeight={500}>
+          Why Are We The Most Preferred Online Pharmacy?
+        </Heading>
+        <Text fontSize={15} mt={3}>
+          Lucrative offers on our platform allow you to make payment online and
+          via various payment wallets at a discounted price. Alternatively, you
+          can also choose to pay cash on delivery as we deliver the products at
+          your doorstep. We cater to all your pharmaceutical needs and also make
+          ordering medicines online a hassle-free experience for you. We connect
+          you only with registered retail pharmacies & certified diagnostic
+          labs. We ensure that healthcare is affordable to all and make the
+          process of ordering online simple.
+        </Text>
+        <Heading mt={7} as={"h6"} size="xs" fontWeight={500}>
+          Sit Back & Relax While You Get Your Essentials Delivered Every Month!
+        </Heading>
+        <Text fontSize={15} mt={3}>
+          It’s tough to remember to refill every month, especially in the case
+          of chronic diseases. PharmEasy’s subscription service not only ensures
+          that you are reminded of your refills but also makes sure that you are
+          never out on your medical essentials. You will get a reminder every
+          month and your order will be delivered at your convenience!
+        </Text>
+        <Heading mt={7} as={"h6"} size="xs" fontWeight={500}>
+          Access medical and health information:
+        </Heading>
+        <Text fontSize={15} mt={3}>
+          PharmEasy delivers reliable and accurate medical information that has
+          been carefully written, vetted and validated by our health experts.
+          Our specialists curate high-quality and most reliable literature about
+          medicines, illnesses, lab tests, Ayurvedic and over the counter health
+          products.
+        </Text>
+        <Heading mt={7} as={"h6"} size="xs" fontWeight={500}>
+          <Heading mt={7} as={"h6"} size="xs" fontWeight={500}>
+            We Believe in ‘Simplifying Healthcare, Impacting Lives!’
+          </Heading>
+        </Heading>
       </Box>
       <Adslider />
     </>

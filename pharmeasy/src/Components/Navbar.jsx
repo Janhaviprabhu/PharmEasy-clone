@@ -23,11 +23,16 @@ export const Navbar = () => {
   return (
     <>
       <div className="navbar">
-        <HStack  className="nav-flex">
-          <HStack className="left-div">
-            <Box>
+        <HStack
+          gap={{ base: "0px", sm: "200px", lg: "660px" }}
+          className="nav-flex"
+        >
+          <Flex className="left-div">
+            <Box width={{ base: "150px" }}>
               <Link to="/">
                 <Image
+                  width={{ base: "100px", sm: "100px", lg: "150px" }}
+                  height={{ base: "60px" }}
                   src="https://assets.pharmeasy.in/apothecary/images/logo_big.svg?dim=256x0"
                   alt="pharmEasy"
                 />
@@ -35,19 +40,24 @@ export const Navbar = () => {
             </Box>
             <Box className="line"></Box>
             <Box>
-              <HStack>
+              <Flex fontSize={{ base: "12px", sm: "13px", lg: "12px" }}>
                 <Image
+                width={"auto"}
                   src="https://assets.pharmeasy.in/apothecary/images/ic_express%20delivery.svg?dim=16x0"
                   alt="image"
                 />
                 <Box>Express delivery to</Box>
-              </HStack>
+              </Flex>
               <Heading as="h6" size="xs">
                 Select pincode <Icon as={ChevronDownIcon}></Icon>
               </Heading>
             </Box>
-          </HStack>
-          <HStack className="right-div" bg='white'>
+          </Flex>
+          <Flex
+            fontSize={{ base: "12px", sm: "13px", lg: "15px" }}
+            className="right-div"
+            bg="white"
+          >
             <Flex className="loginflex">
               <Loginicon />
               <Link>Hello , Log in</Link>
@@ -60,36 +70,36 @@ export const Navbar = () => {
               <Carticon />
               <Link>Cart</Link>
             </Flex>
-          </HStack>
+          </Flex>
         </HStack>
         <Box className="categorynavbox">
-          <HStack className="categoriesnav">
+          <Flex ml={{base:"5px",sm:"50px",lg:"330px"}} className="categoriesnav">
             <Heading fontWeight={500} size="xs">
               <Link to="/medicines">Medicines</Link>
             </Heading>
             <Heading fontWeight={500} size="xs">
-              Lab Tests
+              <Link>Lab Tests</Link>
             </Heading>
             <Heading fontWeight={500} size="xs">
-              Health Care
+              <Link>Healthcare</Link>
             </Heading>
             <Heading fontWeight={500} size="xs">
-              Health Blogs
+              <Link>Health Blogs
+              </Link>
             </Heading>
             <Heading fontWeight={500} size="xs">
-              {" "}
-              PLUS
+              <Link>PLUS</Link>
             </Heading>
             <Heading fontWeight={500} size="xs">
-              Offers
+             <Link>Offers</Link>
             </Heading>
             <Heading fontWeight={500} size="xs">
-              Surgeries
+              <Link>Surgeries</Link>
             </Heading>
             <Heading fontWeight={500} size="xs">
-              Value Store
+              <Link>Value Store</Link>
             </Heading>
-          </HStack>
+          </Flex>
         </Box>
       </div>
     </>
