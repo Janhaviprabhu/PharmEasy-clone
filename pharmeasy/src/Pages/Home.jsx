@@ -73,6 +73,7 @@ export const Home = ({ value, handleChange, onClick }) => {
               width={40}
               src="https://assets.pharmeasy.in/apothecary/images/medicine_ff.webp?dim=256x0"
             />
+            {/* .........................................Categories................................................ */}
             <Text>Medicine</Text>
             <Text color={"red"} fontSize="12px" fontWeight={600}>
               UPTO 20% OFF
@@ -355,6 +356,7 @@ export const Home = ({ value, handleChange, onClick }) => {
             </Box>
           </GridItem>
         </Grid>
+        {/* ................................New Launches............................................................ */}
         <Heading fontWeight={500} as="h3" size="lg" mt={20}>
           New Launches
         </Heading>
@@ -722,9 +724,292 @@ export const Home = ({ value, handleChange, onClick }) => {
             </Box>
           </GridItem>
         </Grid>
+        {/* ..........................Frequently Booked Lab tests........................... */}
         <Heading as="h3" size="lg" fontWeight={600}>
           Frequently Booked Lab Tests
         </Heading>
+        <Grid
+          ml={12}
+          templateColumns={{
+            base: "repeat(1, 1fr)",
+            sm: "repeat(2, 1fr)",
+            lg: "repeat(4, 1fr)",
+          }}
+          mt={10}
+        >
+          <GridItem mt={3}>
+            <Box padding={4} background={"#f1fafe"} width={60}>
+              <Box
+                width={20}
+                color="white"
+                padding={1}
+                borderRadius={4}
+                background={"#f47779"}
+              >
+                60% OFF
+              </Box>
+              <Heading mt={3} as={"h5"} size="sm">
+                Post Prandial Blood Sugar (PPBS)
+              </Heading>
+              <Text mt={3} color={"grey"} fontSize={14}>
+                Measures your blood sugar levels after last meal
+              </Text>
+              <Flex mt={3}>
+                <Box>
+                  <Heading
+                    color={"grey"}
+                    textDecoration={"line-through"}
+                    as={"hg"}
+                    size="md"
+                  >
+                    ₹500
+                  </Heading>
+                  <Heading as={"h5"} size="lg">
+                    ₹199
+                  </Heading>
+                </Box>
+                <Image
+                  ml={7}
+                  width={24}
+                  src="https://s3.ap-south-1.amazonaws.com/pe-neon-public/diagnostics/production/recommendationWidget/f39e65011d9439e28c6500a1e444735e.png?dim=96x0"
+                />
+              </Flex>
+            </Box>
+          </GridItem>
+          <GridItem mt={3}>
+            <Box padding={4} background={"rgb(253 247 232)"} width={60}>
+              <Box
+                width={20}
+                color="white"
+                padding={1}
+                borderRadius={4}
+                background={"#f47779"}
+              >
+                64% OFF
+              </Box>
+              <Heading mt={3} as={"h5"} size="sm">
+                Comprehensive Full Body Checkup with Vita
+              </Heading>
+              <Text mt={3} color={"grey"} fontSize={14}>
+                Measures Vitamin D & B12 levels and other essential
+              </Text>
+              <Flex mt={3}>
+                <Box>
+                  <Heading
+                    color={"grey"}
+                    textDecoration={"line-through"}
+                    as={"hg"}
+                    size="md"
+                  >
+                    ₹4199
+                  </Heading>
+                  <Heading as={"h5"} size="lg">
+                    ₹1499
+                  </Heading>
+                </Box>
+                <Image
+                  ml={7}
+                  width={24}
+                  src="https://s3.ap-south-1.amazonaws.com/pe-neon-public/diagnostics/production/recommendationWidget/c4162b4ec00938379d15b2719577457e.png?dim=96x0"
+                />
+              </Flex>
+            </Box>
+          </GridItem>
+          <GridItem mt={3}>
+            <Box padding={4} background={"#f1fafe"} width={60}>
+              <Box
+                width={20}
+                color="white"
+                padding={1}
+                borderRadius={4}
+                background={"#f47779"}
+              >
+                60% OFF
+              </Box>
+              <Heading mt={3} as={"h5"} size="sm">
+                Fasting Blood Sugar (FBS) Blood Checkup
+              </Heading>
+              <Text mt={3} color={"grey"} fontSize={14}>
+                Provides sugar level after an overnight's fast
+              </Text>
+              <Flex mt={3}>
+                <Box>
+                  <Heading
+                    color={"grey"}
+                    textDecoration={"line-through"}
+                    as={"hg"}
+                    size="md"
+                  >
+                    ₹500
+                  </Heading>
+                  <Heading as={"h5"} size="lg">
+                    ₹199
+                  </Heading>
+                </Box>
+                <Image
+                  ml={7}
+                  width={24}
+                  src="https://s3.ap-south-1.amazonaws.com/pe-neon-public/diagnostics/production/recommendationWidget/4ff607383fad35e4af5639c3e7709734.png?dim=96x0"
+                />
+              </Flex>
+            </Box>
+          </GridItem>
+          <GridItem mt={3}>
+            <Box padding={4} background={"rgb(253 247 232)"} width={60}>
+              <Box
+                width={20}
+                color="white"
+                padding={1}
+                borderRadius={4}
+                background={"#f47779"}
+              >
+                66% OFF
+              </Box>
+              <Heading mt={3} as={"h5"} size="sm">
+                Healthy 2022 Full Body Checkup
+              </Heading>
+              <Text mt={3} color={"grey"} fontSize={14}>
+                Diagnostic tool for screening and monitoring of your health
+              </Text>
+              <Flex mt={3}>
+                <Box>
+                  <Heading
+                    color={"grey"}
+                    textDecoration={"line-through"}
+                    as={"hg"}
+                    size="md"
+                  >
+                    ₹2990
+                  </Heading>
+                  <Heading as={"h5"} size="lg">
+                    ₹2990
+                  </Heading>
+                </Box>
+                <Image
+                  ml={7}
+                  width={24}
+                  src="https://s3.ap-south-1.amazonaws.com/pe-neon-public/diagnostics/production/recommendationWidget/f39e65011d9439e28c6500a1e444735e.png?dim=96x0"
+                />
+              </Flex>
+            </Box>
+          </GridItem>
+        </Grid>
+        <Heading as={"h6"} size="lg" fontWeight={500}>
+          Payment Offers
+        </Heading>
+        <Grid overflow={"hidden"} templateColumns={"repeat(3,1fr)"} mt={7}>
+          <GridItem ml={5}>
+            <Image
+              width={"350px"}
+              src="https://cdn01.pharmeasy.in/dam/banner/banner/4bbc0b1648d-OPEN-FILE.jpg?dim=1440x0"
+            />
+          </GridItem>
+          <GridItem ml={5}>
+            <Image
+              width={"350px"}
+              src="https://cdn01.pharmeasy.in/dam/banner/banner/a93d45ef9eb-HSBC.jpg?dim=1440x0"
+            />
+          </GridItem>
+          <GridItem ml={5}>
+            <Image
+              width={"350px"}
+              src="https://cdn01.pharmeasy.in/dam/banner/banner/24ea2e52ea9-hdfc.jpg?dim=1440x0"
+            />
+          </GridItem>
+        </Grid>
+        {/* ............................Featured Brands.......................................................... */}
+        <Heading fontWeight={500} as="h3" size="lg" mt={20}>
+          Featured Brands
+        </Heading>
+        <Text mt={3} color={"grey"}>
+          Pick from our favourite brands
+        </Text>
+        <Grid
+          mt={10}
+          ml={9}
+          templateColumns={{
+            base: "repeat(2, 1fr)",
+            sm: "repeat(4, 1fr)",
+            lg: "repeat(7, 1fr)",
+          }}
+        >
+          <GridItem>
+            <Box width={130}>
+              <Image
+                borderRadius={8}
+                width={130}
+                src="https://cms-contents.pharmeasy.in/homepage_top_categories_images/923a665cc6f-Skin_care.png?dim=128x0"
+              />
+
+              <Text mt={4} textAlign={"center"}>
+                Skin Care
+              </Text>
+            </Box>
+          </GridItem>
+          <GridItem>
+            <Box>
+              <Image
+                width={130}
+                src="https://cms-contents.pharmeasy.in/homepage_top_categories_images/18d2e2ee86b-Vitamins.png?dim=128x0"
+              />
+
+              <Text mt={4} ml={6}>
+                Vitamins & Supplements
+              </Text>
+            </Box>
+          </GridItem>
+          <GridItem>
+            <Box>
+              <Image
+                width={130}
+                src="https://cms-contents.pharmeasy.in/homepage_top_categories_images/0af9ac9f350-Diabetes.webp?dim=128x0"
+              />
+
+              <Text mt={4} width={40} ml={2}>
+                Diabetes Care & Sugar Substitutes..
+              </Text>
+            </Box>
+          </GridItem>
+          <GridItem>
+            <Box>
+              <Image
+                width={130}
+                src="https://cms-contents.pharmeasy.in/homepage_top_categories_images/24a0d2c733e-Heart.webp?dim=128x0"
+              />
+
+              <Text mt={4} ml={4}>
+                Cardiac Care
+              </Text>
+            </Box>
+          </GridItem>
+          <GridItem>
+            <Box>
+              <Image
+                width={120}
+                src="https://cms-contents.pharmeasy.in/homepage_top_categories_images/68369c9df98-Pregnancy.webp?dim=128x0"
+              />
+              <Text mt={7}>Baby & Mom Care</Text>
+            </Box>
+          </GridItem>
+          <GridItem>
+            <Box>
+              <Image
+                width={120}
+                src="https://cms-contents.pharmeasy.in/homepage_top_categories_images/16ab65c0826-Covid.webp?dim=128x0"
+              />
+              <Text mt={7}>Covid Care</Text>
+            </Box>
+          </GridItem>
+          <GridItem>
+            <Box>
+              <Image
+                width={130}
+                src="https://cms-contents.pharmeasy.in/homepage_top_categories_images/26bbd7a9e98-Lifestyle.webp?dim=128x0"
+              />
+              <Text mt={5}>Lifestyle Disorders</Text>
+            </Box>
+          </GridItem>
+        </Grid>
       </Box>
       <Adslider />
     </>
