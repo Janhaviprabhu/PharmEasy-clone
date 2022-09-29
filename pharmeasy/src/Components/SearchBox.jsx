@@ -2,7 +2,7 @@ import { Flex,Image,Box, Heading, Input, InputGroup, InputLeftAddon, InputRightA
 import { Search } from "../Icon/loginicon";
 import "../Styles/medicine.css"
 
-export const SearchBox = () => {
+export const SearchBox = ({handleChange,value,onClick}) => {
   return (
     <>
       <Flex mt={6}>
@@ -41,17 +41,20 @@ export const SearchBox = () => {
           </Heading>
           <InputGroup size="lg">
             <InputLeftAddon
-              fontSize={"md"}
+              fontSize={{ base: "xsm", sm: "xsm", md: "md", lg: "mg" }}
               className="inputgrp"
               children="Select Pincode"
             />
             <Input
+              value={value}
+              onChange={handleChange}
               className="inputgrp"
               variant="filled"
-              fontSize={"md"}
+              fontSize={{ base: "xsm", sm: "xsm", md: "md", lg: "mg" }}
               placeholder="Search Medicines/Healthcare products"
             />
             <InputRightAddon
+              onClick={onClick}
               fontSize={"md"}
               className="inputgrp"
               children={<Search />}

@@ -1,5 +1,5 @@
 .medicinebox{
-    border: 1px solid black;
+   
     width: 70%;
     margin: auto;
 }
@@ -29,4 +29,18 @@
 }
 .offersinnerdiv{
     gap: 8px;
+}
+.adcarousel{
+    position: relative;
+ overflow: hidden; 
+  margin-top: 50px;
+  width: 900px;
+}
+.adcont{
+    
+    scroll-behavior: smooth;
+    display: flex;
+    gap: 10px;
+
+   
 }
