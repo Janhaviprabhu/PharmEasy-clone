@@ -203,7 +203,7 @@ export const Home = () => {
             <Heading></Heading>
           </Box>
         </Flex>
-        <Adslider  />
+        <Adslider />
         {/* ..........................................offers Just for You........... */}
         <Heading fontWeight={500} mt={20} as="h3" size="lg">
           Offers Just for You
@@ -507,23 +507,25 @@ export const Home = () => {
           </GridItem>
           <GridItem>
             <Box>
-              <Image
-                borderRadius={8}
-                border={"1px solid lightgrey"}
-                padding={2}
-                _hover={{
-                  boxShadow:
-                    "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
-                }}
-                ml={3}
-                width={"120px"}
-                height="auto"
-                src="https://cdn01.pharmeasy.in/dam/products_otc/I07716/indulekha-bringha-hair-oil-bottle-of-100-ml-2-1654168008.jpg"
-              />
-              <Text mt={4}>Liveasy Wellness Pain Relief Spray 55gm</Text>
-              <Text mt={2} color="grey">
-                MRP ₹199.00
-              </Text>
+              
+                <Image
+                  borderRadius={8}
+                  border={"1px solid lightgrey"}
+                  padding={2}
+                  _hover={{
+                    boxShadow:
+                      "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
+                  }}
+                  ml={3}
+                  width={"120px"}
+                  height="auto"
+                  src="https://cdn01.pharmeasy.in/dam/products_otc/I07716/indulekha-bringha-hair-oil-bottle-of-100-ml-2-1654168008.jpg"
+                />
+                <Text mt={4}>Indulekha Bringha Hair Oil</Text>
+                <Text mt={2} color="grey">
+                  MRP ₹299.00
+                </Text>
+              
             </Box>
           </GridItem>
           <GridItem>

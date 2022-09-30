@@ -1,9 +1,11 @@
-import {  Heading, Image ,Box, Flex,Text, ListItem, UnorderedList, Accordion, AccordionItem, AccordionButton, AccordionIcon, AccordionPanel, OrderedList, Button} from "@chakra-ui/react"
+import {  Heading, Image ,Box, Flex,Text, ListItem, UnorderedList, Accordion, AccordionItem, AccordionButton, AccordionIcon, AccordionPanel, OrderedList, Button, Link} from "@chakra-ui/react"
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { Breadcrum } from "../Components/Breadcrum"
 import { SearchBox } from "../Components/SearchBox";
 import { Adslider } from "../Components/Slider";
 import "../Styles/medicine.css"
+import { SinglePage } from "./SingleProduct";
 
 
 export const Medicines=()=>{
@@ -44,7 +46,7 @@ export const Medicines=()=>{
             value={value}
             onClick={() => getData(value)}
           />
-          <Box ml={14}>{value}</Box>
+          {/* <Box ml={14}>{value}</Box> */}
           <Box>
             {data.map((ele) => (
               <Flex key={ele.id} padding={10} alignItems={"center"} gap={10}>
@@ -52,7 +54,9 @@ export const Medicines=()=>{
                   src={ele.img}
                   width={{ base: "10", sm: "20", md: "30", lg: "40" }}
                 />
-                <Box>{ele.title}</Box>
+                <NavLink to={`/medicines/${ele.id}`} >
+                 {ele.title}
+                </NavLink>
               </Flex>
             ))}
           </Box>
@@ -105,6 +109,8 @@ export const Medicines=()=>{
               </Box>
             </Flex>
           </Box>
+
+          <Adslider/>
 
           <Heading mt={10} as={"h6"} size={"sm"}>
             India's No. 1 Medicine Delivery App
