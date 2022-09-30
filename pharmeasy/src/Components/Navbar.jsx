@@ -3,7 +3,8 @@ import { ChevronDownIcon } from "@chakra-ui/icons";
 import "../Styles/navbar.css";
 import { Carticon, Loginicon, Offerinicon } from "../Icon/loginicon";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+
+import DrawerLogin from "./Drawerlogin";
 
 export const Navbar = () => {
   // const [scroll,setScroll]=useState(false)
@@ -31,7 +32,7 @@ export const Navbar = () => {
             <Box width={{ base: "150px" }}>
               <Link to="/">
                 <Image
-                  width={{ base: "100px", sm: "100px", lg: "150px" }}
+                  width={{ base: "100px", sm: "100px", lg: "190px" }}
                   height={{ base: "60px" }}
                   src="https://assets.pharmeasy.in/apothecary/images/logo_big.svg?dim=256x0"
                   alt="pharmEasy"
@@ -60,7 +61,7 @@ export const Navbar = () => {
           >
             <Flex className="loginflex">
               <Loginicon />
-              <Link>Hello , Log in</Link>
+              <DrawerLogin/>
             </Flex>
             <Flex className="offerflex">
               <Offerinicon />

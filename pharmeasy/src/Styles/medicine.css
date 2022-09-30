@@ -28,19 +28,20 @@
     color: white;
 }
 .offersinnerdiv{
-    gap: 8px;
+    gap: 4px;
 }
-.adcarousel{
-    position: relative;
- overflow: hidden; 
-  margin-top: 50px;
-  width: 900px;
+.slideshow {
+  margin: 0 auto;
+  overflow: hidden;
+  margin-top: 20px  ;
 }
-.adcont{
-    
-    scroll-behavior: smooth;
-    display: flex;
-    gap: 10px;
 
-   
+.slideshowSlider {
+  white-space: nowrap;
+  transition: ease 900ms;
+}
+
+.slide {
+  display: inline-block;
+  width: 50%;
 }

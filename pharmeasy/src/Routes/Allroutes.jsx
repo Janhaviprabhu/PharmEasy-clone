@@ -7,7 +7,7 @@ export const Allroutes=()=>{
         <Routes>
             <Route path="/" element={<Home/>} /> 
             <Route path="/medicines" element={<Medicines/>}  />
-
+            <Route/>
         </Routes>
     )
 }
