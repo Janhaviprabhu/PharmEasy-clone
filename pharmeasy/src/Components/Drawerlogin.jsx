@@ -14,6 +14,7 @@ import {
   Flex,
   PinInput,
   PinInputField,
+  useToast,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 
@@ -22,21 +23,38 @@ export default function DrawerLogin() {
   const btnRef = React.useRef();
   const [otp, setOtp] = useState("");
   const [isLogin, setLogin] = useState(false);
+  const toast=useToast()
   const random = Math.floor(1000 + Math.random() * 9000);
   const handleSend = () => {
     console.log(random);
-    alert(`Your OTP is ${random} please enter to Login`);
+    toast({
+      position: "top",
+      render: () => (
+        <Box color="white" p={3} bg="blue.500">
+         {`Your otp is ${random} please enter to Login`}
+        </Box>
+      ),
+    });
     setLogin(true);
   };
   const handleContinue = () => {
     setLogin(true);
     console.log("clickconti");
-    alert(`You have successfully Logined`);
+   toast({
+     position: "top",
+     render: () => (
+       <Box color="white" p={3} bg="green.500">
+         {`You have Successfully Login`}
+       </Box>
+     ),
+   });
+   
+   setOtp("")
   };
   return (
     <>
       <Box _hover={{}} ref={btnRef} colorScheme="teal" onClick={onOpen}>
-        Hello, Login
+        Hello, {isLogin?"User":"Login"}
       </Box>
       <Drawer
         size={"sm"}

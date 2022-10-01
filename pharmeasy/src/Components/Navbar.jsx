@@ -32,7 +32,8 @@ export const Navbar = () => {
             <Box width={{ base: "150px" }}>
               <Link to="/">
                 <Image
-                  width={{ base: "100px", sm: "100px", lg: "190px" }}
+                padding={2}
+                  width={{ base: "100px", sm: "100px", lg: "300px" }}
                   height={{ base: "60px" }}
                   src="https://assets.pharmeasy.in/apothecary/images/logo_big.svg?dim=256x0"
                   alt="pharmEasy"
@@ -69,7 +70,7 @@ export const Navbar = () => {
             </Flex>
             <Flex className="cartflex">
               <Carticon />
-              <Link>Cart</Link>
+              <Link to={"/cart"}>Cart</Link>
             </Flex>
           </Flex>
         </HStack>
