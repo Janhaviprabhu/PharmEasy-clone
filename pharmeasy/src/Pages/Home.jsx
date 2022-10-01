@@ -286,6 +286,7 @@ export const Home = () => {
           Shop By Categories
         </Heading>
         <Grid
+          fontSize={15}
           mt={10}
           ml={9}
           templateColumns={{
@@ -370,7 +371,7 @@ export const Home = () => {
                   boxShadow:
                     "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
                 }}
-                width={140}
+                width={130}
                 src="https://cdn01.pharmeasy.in/dam/discovery/categoryImages/9b3ad6971475304e9e1614ac30d4545a.png?f=png?dim=256x0"
               />
               <Text mt={4}>Skin care</Text>
@@ -417,7 +418,7 @@ export const Home = () => {
           New wellness range just for you!
         </Text>
         <Grid
-          fontSize={14}
+          fontSize={13}
           mt={10}
           ml={9}
           templateColumns={{
@@ -458,7 +459,7 @@ export const Home = () => {
                 width={150}
                 src="https://cdn01.pharmeasy.in/dam/products_otc/L64620/la-french-victory-eau-de-perfume-for-men-100ml-2-1655560499.jpg"
               />
-              <Text mt={4}>Pharmeasy Digital Thermometer Flexi</Text>
+              <Text mt={4}> Digital Thermometer Flexi</Text>
               <Text mt={2} color="grey">
                 MRP ₹450.00
               </Text>
@@ -478,8 +479,7 @@ export const Home = () => {
                 src="https://cdn01.pharmeasy.in/dam/products_otc/M09396/streax-professional-canvoline-serum-100-ml-2-1653393335.jpg"
               />
               <Text mt={4} width={40}>
-                Tvaksh Faceguard Sunscreen 30 Spf 30 Gm Tvaksh Faceguard
-                Sunscreen 30 Spf 30
+                Tvaksh Faceguard Sunscreen 30 
               </Text>
               <Text mt={2} color="grey">
                 MRP ₹501.00
@@ -499,7 +499,7 @@ export const Home = () => {
                 }}
                 src="https://cdn01.pharmeasy.in/dam/products_otc/H62146/sanfe-back-bum-acne-clearing-lotion-with-shea-butter-peach-extracts-100ml-2-1643016734.jpg"
               />
-              <Text mt={4}>Sanfe Back & Bum Acne Clearing Lotion</Text>
+              <Text mt={4}> Acne Clearing Lotion</Text>
               <Text mt={2} color="grey">
                 MRP ₹154.00
               </Text>
@@ -507,25 +507,23 @@ export const Home = () => {
           </GridItem>
           <GridItem>
             <Box>
-              
-                <Image
-                  borderRadius={8}
-                  border={"1px solid lightgrey"}
-                  padding={2}
-                  _hover={{
-                    boxShadow:
-                      "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
-                  }}
-                  ml={3}
-                  width={"120px"}
-                  height="auto"
-                  src="https://cdn01.pharmeasy.in/dam/products_otc/I07716/indulekha-bringha-hair-oil-bottle-of-100-ml-2-1654168008.jpg"
-                />
-                <Text mt={4}>Indulekha Bringha Hair Oil</Text>
-                <Text mt={2} color="grey">
-                  MRP ₹299.00
-                </Text>
-              
+              <Image
+                borderRadius={8}
+                border={"1px solid lightgrey"}
+                padding={2}
+                _hover={{
+                  boxShadow:
+                    "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;",
+                }}
+                ml={3}
+                width={"120px"}
+                height="auto"
+                src="https://cdn01.pharmeasy.in/dam/products_otc/I07716/indulekha-bringha-hair-oil-bottle-of-100-ml-2-1654168008.jpg"
+              />
+              <Text mt={10}>Indulekha Bringha Hair Oil</Text>
+              <Text mt={2} color="grey">
+                MRP ₹299.00
+              </Text>
             </Box>
           </GridItem>
           <GridItem>
@@ -541,7 +539,7 @@ export const Home = () => {
                 width={130}
                 src="https://cdn01.pharmeasy.in/dam/products_otc/L11389/venusia-baby-cream-75g-2-1663052178.jpg?dim=1440x0"
               />
-              <Text mt={4}>Venusia Baby Cream -75g</Text>
+              <Text mt={12}>Venusia Baby Cream -75g</Text>
               <Text mt={2} color="grey">
                 MRP ₹275.00
               </Text>
@@ -560,7 +558,7 @@ export const Home = () => {
                 width={140}
                 src="https://cdn01.pharmeasy.in/dam/products_otc/281751/revital-h-men-multivitamin-with-calcium-zinc-ginseng-for-immunity-strong-bones-energy-60-capsules-2-1654077644.jpg"
               />
-              <Text mt={4}>Revital H Men Multivitamin</Text>
+              <Text mt={12}>Revital H Men Multivitamin</Text>
               <Text mt={2} color="grey">
                 MRP ₹550
               </Text>
@@ -575,6 +573,7 @@ export const Home = () => {
           Popular in your city
         </Text>
         <Grid
+        fontSize={13}
           mt={10}
           ml={9}
           templateColumns={{
@@ -760,7 +759,7 @@ export const Home = () => {
                 src="https://cms-contents.pharmeasy.in/homepage_top_categories_images/18d2e2ee86b-Vitamins.png?dim=128x0"
               />
 
-              <Text mt={4} ml={6}>
+              <Text width={40} mt={4} ml={6}>
                 Vitamins & Supplements
               </Text>
             </Box>
@@ -1155,7 +1154,7 @@ export const Home = () => {
                 width={125}
                 src="https://cdn01.pharmeasy.in/dam/products_otc/082015/himalaya-gasex-tablets-100s-2-1641399057.jpg?dim=1440x0"
               />
-              <Text mt={2}>Himalaya Gasex Tablets - 100's</Text>
+              <Text mt={2}>Himalaya Gasex Tablets </Text>
               <Text mt={2} color="grey">
                 MRP ₹123.00
               </Text>
