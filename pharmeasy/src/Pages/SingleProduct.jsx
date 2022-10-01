@@ -1,7 +1,9 @@
-import { Box, Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Image, Text, useToast } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
+import { useContext } from "react";
+import { AuthContext } from "../Context/AuthContext";
 const getProducts = async (id) => {
   const res = await fetch(`http://localhost:3000/medicines/${id}`);
   return await res.json();
@@ -10,12 +12,26 @@ const getProducts = async (id) => {
 export const SinglePage = () => {
   const [data, setData] = useState({});
   const params = useParams();
+  const {cartData,setCartData}=useContext(AuthContext)
+  const toast=useToast()
   useEffect(() => {
     getProducts(params.id).then((res) => {
       setData(res);
-      console.log(res);
+      // console.log(res);
     });
   }, [params.id]);
+  const handleAddtoCart=(ele)=>{
+    setCartData([...cartData,ele])
+    toast({
+      position: "bottom-left",
+      render: () => (
+        <Box color="white" p={3} bg="green.500">
+          Your product is successfully added
+        </Box>
+      ),
+    });
+    // alert(`Your ${data.title} is added to Cart`)
+  }
   return (
     <>
       <Box h="140px">
@@ -128,7 +144,7 @@ export const SinglePage = () => {
                     </Text>
                   </Flex>
                   <Button
-                 
+                 onClick={handleAddtoCart}
                     background={"#10847e"}
                     _hover={{ background: "#14918b" }}
                     color="white"
