@@ -9,13 +9,13 @@ import { AurhContextProvider } from './Context/AuthContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ChakraProvider>
-    <AurhContextProvider>
+  <AurhContextProvider>
+    <ChakraProvider>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </AurhContextProvider>
-  </ChakraProvider>
+    </ChakraProvider>
+  </AurhContextProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

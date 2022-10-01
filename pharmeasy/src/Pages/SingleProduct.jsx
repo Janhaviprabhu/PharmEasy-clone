@@ -12,7 +12,7 @@ const getProducts = async (id) => {
 export const SinglePage = () => {
   const [data, setData] = useState({});
   const params = useParams();
-  const {cartData,setCartData}=useContext(AuthContext)
+  const { cartData, setCartData } = useContext(AuthContext);
   const toast=useToast()
   useEffect(() => {
     getProducts(params.id).then((res) => {
@@ -21,7 +21,7 @@ export const SinglePage = () => {
     });
   }, [params.id]);
   const handleAddtoCart=(ele)=>{
-    setCartData([...cartData,ele])
+    setCartData([...cartData, ele]);
     toast({
       position: "bottom-left",
       render: () => (
@@ -144,7 +144,7 @@ export const SinglePage = () => {
                     </Text>
                   </Flex>
                   <Button
-                 onClick={handleAddtoCart}
+                 onClick={()=>handleAddtoCart(data)}
                     background={"#10847e"}
                     _hover={{ background: "#14918b" }}
                     color="white"
