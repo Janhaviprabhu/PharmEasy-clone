@@ -6,5 +6,9 @@ PharmEasy is as an e-commerce platform, offering pharmaceutical and healthcare p
 
 ```Pharm Easy ```
 
+##  Description
+Created a functional website for purchasing pharmaceutical and healthcare products.Where user can login by his/her phone number. Implemented searching ,review product and add to cart functionalities.
+
+
 ![image](https://user-images.githubusercontent.com/97351159/199207187-1605a618-2e09-4112-90b0-b752d9d53495.png)
 
