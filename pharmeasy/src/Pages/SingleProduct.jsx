@@ -5,7 +5,9 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
 import { useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
 const getProducts = async (id) => {
-  const res = await fetch(`http://localhost:3000/medicines/${id}`);
+  const res = await fetch(
+    `https://serverpharmadbjson.onrender.com/medicines/${id}`
+  );
   return await res.json();
 };
 

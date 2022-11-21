@@ -13,15 +13,17 @@ export const Medicines=()=>{
   const [boxval,setBoxval]=useState(true)
   const [data,setData]=useState([])
   const getData=(query)=>{
-    fetch(`http://localhost:3000/medicines?q=${query}`).then((res)=>res.json())
-    .then((res)=>{
-      setData(res)
-      console.log(res)
-      setValue("")
-      setBoxval(true)
-    }).catch((err)=>{
-      console.log(err)
-    })
+    fetch(`https://serverpharmadbjson.onrender.com/medicines?q=${query}`)
+      .then((res) => res.json())
+      .then((res) => {
+        setData(res);
+        console.log(res);
+        setValue("");
+        setBoxval(true);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
   const handleChange=(e)=>{
     const {value}=e.target
@@ -54,9 +56,7 @@ export const Medicines=()=>{
                   src={ele.img}
                   width={{ base: "10", sm: "20", md: "30", lg: "40" }}
                 />
-                <NavLink to={`/medicines/${ele.id}`} >
-                 {ele.title}
-                </NavLink>
+                <NavLink to={`/medicines/${ele.id}`}>{ele.title}</NavLink>
               </Flex>
             ))}
           </Box>
@@ -71,7 +71,10 @@ export const Medicines=()=>{
                     src="https://cms-contents.pharmeasy.in/offer/702efbbe2e6-au.jpg?w=64&q=75"
                     width={20}
                   />
-                  <Text fontSize={"sm"}>
+                  <Text
+                    display={{ base: "none", sm: "none", lg: "block" }}
+                    fontSize={"sm"}
+                  >
                     Flat Rs.150 Off on AU Bank{" "}
                     <Flex color={"#8897a2"}>
                       Code: <Text color={"black"}>PEAUBANK</Text>
@@ -85,7 +88,10 @@ export const Medicines=()=>{
                     src="https://cms-contents.pharmeasy.in/offer/61f3dfe3705-OlaMoney.png?w=64&q=75"
                     width={20}
                   />
-                  <Text fontSize={"sm"}>
+                  <Text
+                    display={{ base: "none", sm: "none", lg: "block" }}
+                    fontSize={"sm"}
+                  >
                     Get minimum ₹50 and up to ₹1000 cashback{" "}
                     <Flex color={"#8897a2"}>
                       Code: <Text color={"black"}> PEOLAM</Text>
@@ -99,7 +105,10 @@ export const Medicines=()=>{
                     src="https://cms-contents.pharmeasy.in/offer/62e13eb58a2-2.jpg?w=64&q=75"
                     width={20}
                   />
-                  <Text fontSize={"sm"}>
+                  <Text
+                    display={{ base: "none", sm: "none", lg: "block" }}
+                    fontSize={"sm"}
+                  >
                     Healthy Heart Sale is LIVE!{" "}
                     <Flex color={"#8897a2"}>
                       Code: <Text color={"black"}>HEAL5</Text>
@@ -110,7 +119,7 @@ export const Medicines=()=>{
             </Flex>
           </Box>
 
-          <Adslider/>
+          <Adslider />
 
           <Heading mt={10} as={"h6"} size={"sm"}>
             India's No. 1 Medicine Delivery App

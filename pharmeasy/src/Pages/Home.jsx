@@ -24,7 +24,7 @@ export const Home = () => {
     const [data, setData] = useState([]);
      const [boxval, setBoxval] = useState(true);
     const getData = (query) => {
-      fetch(`http://localhost:3000/medicines?q=${query}`)
+      fetch(`https://serverpharmadbjson.onrender.com/medicines?q=${query}`)
         .then((res) => res.json())
         .then((res) => {
           setData(res);
