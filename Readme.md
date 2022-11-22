@@ -9,6 +9,31 @@ PharmEasy is as an e-commerce platform, offering pharmaceutical and healthcare p
 ##  Description
 Created a functional website for purchasing pharmaceutical and healthcare products.Where user can login by his/her phone number. Implemented searching ,review product and add to cart functionalities.
 
+## Functionalities :
+<ul>
+<li>Landing Page - Home Page</li>
+<li>SignUp/Login</li>
+<li>Searching Product</li>
+<li>Single Product Page</li>
+<li>Cart Page Page</li>
+</ul>
+
+
+## Tech stack  💻 :
+<ul>
+<li>HTML</li>
+<li>CSS</li>
+<li>React.js</li>
+<li>Chakra UI</li>
+<li>Router Dom</li>
+<li>JSON Server</li>
+
+</ul>
+
+## Installation Requirnments 
+
+1. Fork the repo, then clone it
+2. Install all dependencies, with 'npm install'
 
 ![image](https://user-images.githubusercontent.com/97351159/199207187-1605a618-2e09-4112-90b0-b752d9d53495.png)
 
