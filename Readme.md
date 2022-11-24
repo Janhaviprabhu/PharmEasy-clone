@@ -36,5 +36,10 @@ Created a functional website for purchasing pharmaceutical and healthcare produc
 2. Install all dependencies, with 'npm install'
 3. start the application `npm run start`
 
+Home page;:
 ![image](https://user-images.githubusercontent.com/97351159/199207187-1605a618-2e09-4112-90b0-b752d9d53495.png)
+
+Login using OTP
+![image](https://user-images.githubusercontent.com/97351159/203844180-797104c4-fa51-4c0e-846f-4cb5dd30b516.png)
+
 
