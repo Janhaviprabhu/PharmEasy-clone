@@ -1,4 +1,5 @@
 .navbar{
+    display:flex,
     position: fixed;
     width: 100%;
     background-color: white;
